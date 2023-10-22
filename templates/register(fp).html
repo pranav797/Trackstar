@@ -1,0 +1,23 @@
+{% extends "layout(fp).html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <style>
+            body {
+              background-color: #162c3c;
+            }
+        </style>
+
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit" style="background-color:#79c91b;border: 2px solid black; font-family: 'Trebuchet MS'">Register</button>
+    </form>
+{% endblock %}

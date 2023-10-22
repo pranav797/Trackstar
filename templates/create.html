@@ -1,0 +1,54 @@
+{% extends "layout(fp).html" %}
+
+{% block title %}
+    Create Workout
+{% endblock %}
+
+{% block main %}
+
+    <form action="/create", method="POST">
+        <style>
+            body {
+              background-color: #162c3c;
+            }
+        </style>
+
+        <div class = "form-group">
+            <input name="name", type="text", placeholder="Name of workout" autocomplete="off" autofocus, required>
+        </div>
+
+        <div class="select_menu">
+            <Select name="typew", class="custom-select", required>
+                <option selected, value="">Type of workout</option>
+                <option value="upper-body">Upper-Body</option>
+                <option value="core">Core</option>
+                <option value="lower-body">Lower-Body</option>
+                <option value="hiit">HIIT</option>
+            </Select>
+        </div>
+
+        <br>
+
+        <div class="select_menu">
+            <Select name="difficulty", class="custom-select", required>
+                <option selected, value="">Difficulty</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </Select>
+        </div>
+
+        <br>
+
+        <div class = "form-group">
+            <input name="length", type="number", min="1", placeholder="Time (minutes)" autocomplete="off" type="number", required>
+        </div>
+
+        <div class = "workout">
+            <textarea rows="10" cols="100" name="workout", type="text", placeholder="Explain workout here" autocomplete="off", required></textarea>
+        </div>
+
+        <button class="btn btn-primary", type="submit" style="background-color:#79c91b;border: 2px solid black; font-family: 'Trebuchet MS'"> Post</button>
+    </form>
+
+{% endblock %}

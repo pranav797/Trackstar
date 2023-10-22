@@ -1,0 +1,115 @@
+{% extends "layout(fp).html" %}
+
+{% block title %}
+    Workouts
+{% endblock %}
+
+{% block main %}
+
+    <form action="/workout", method="POST">
+        <style>
+            body {
+              background-color: #162c3c;
+            }
+        </style>
+
+        <table class="table table-striped">
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sort" style="background-color:#79c91b;border: 2px solid black; font-family: 'Trebuchet MS'">
+            Filter
+        </button>
+
+        <div class="modal fade" id="sort" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>
+                            Show:
+                            <br>
+                            <div class="select_menu" name="filter">
+                                <Select name="filter_fp", class="custom-select", required>
+                                    <option selected, value="">Choose filter</option>
+                                    <option value="upper-body">Upper-Body</option>
+                                    <option value="core">Core</option>
+                                    <option value="lower-body">Lower-Body</option>
+                                    <option value="hiit">HIIT</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </Select>
+                            </div>
+                        </p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" style="background-color:#79c91b;border: 2px solid black; font-family: 'Trebuchet MS'">Apply Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <tbody>
+            {% for workout in workouts %}
+            <tr>
+                <td>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{workout["name"]}}</h5>
+                            <p class="card-text">{{workout["typew"]}}, {{workout["difficulty"]}}, {{workout["time"]}} minutes</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color:#79c91b;border: 2px solid black; font-family: 'Trebuchet MS'">
+                                See workout
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <!-- Modal -->
+
+            <!-- change the modal to fullscreen and edit the buttons -->
+            <!-- Modal Fullscreen xl -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{workout["name"]}}</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p>
+                                Type: {{workout["typew"]}}
+                                <br>
+                                <br>
+                                Difficulty: {{workout["difficulty"]}}
+                                <br>
+                                <br>
+                                Length: {{workout["time"]}} minutes
+                                <br>
+                                <br>
+                                Description:<br>{{workout["description"]}}
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </tbody>
+
+
+    </form>
+
+
+
+{% endblock %}

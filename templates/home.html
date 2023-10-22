@@ -1,0 +1,19 @@
+{% extends "layout(fp).html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <style>
+        body {
+          background-image: url('https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8d29ya291dHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+        }
+    </style>
+
+    <p style="color:#8be224; font-size:50px; font-family: Impact; text-align:center; position: relative; top: 200px; border: 5px solid black;">Welcome to <i>TRACKSTAR</i></p>
+    <a class="btn btn-primary" href="/workout" role="button" style="background-color:#8be224; font-size:30px; text-align:center; position: relative; top: 210px; left: 420px; border: 2px solid black; font-family: 'Trebuchet MS'">View workouts</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout(fp).html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+        <style>
+            body {
+              background-color: #162c3c;
+            }
+        </style>
+
+    <img alt="{{ top }}" class="border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png" title="{{ top }}">
+{% endblock %}
